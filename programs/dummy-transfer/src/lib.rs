@@ -39,7 +39,7 @@ pub mod payment_escrow {
         Ok(())
     }
 
-    /// Undelegate the balance
+    /// Undelegate the balance (finalize ephemeral execution)
     pub fn undelegate(ctx: Context<UndelegateBalance>) -> Result<()> {
         commit_and_undelegate_accounts(
             &ctx.accounts.payer,
@@ -50,6 +50,9 @@ pub mod payment_escrow {
         Ok(())
     }
 }
+
+// Milestone-based escrow logic (see milestone.rs)
+// Review/reputation logic (see review.rs)
 
 #[derive(Accounts)]
 pub struct Initialize<'info> {
